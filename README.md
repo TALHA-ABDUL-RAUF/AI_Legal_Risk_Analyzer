@@ -1,143 +1,205 @@
-
 <div align="center">
 
-<br/>
+# ⚖️ AI Legal Risk Analyzer
 
-> I built this because reading a 40-page NDA at 1am shouldn't feel like defusing a bomb. Upload the contract, ask what you actually want to know ("can they terminate this without notice?"), and get an answer grounded in the actual clauses — not a guess.
+### AI-Powered Legal Contract Analysis with Retrieval-Augmented Generation
 
-<br/>
+An intelligent system that lets users upload legal contracts, run semantic search over clauses, and generate AI-driven legal risk assessments — powered entirely by a **local LLM**, with no data ever leaving your machine.
 
-## 📖 Table of Contents
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Ollama](https://img.shields.io/badge/LLM-Llama3%3A8B-000000?style=flat-square&logo=ollama&logoColor=white)](https://ollama.com/)
+[![ChromaDB](https://img.shields.io/badge/VectorDB-ChromaDB-6E56CF?style=flat-square)](https://www.trychroma.com/)
+[![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](#license)
 
-<details>
-<summary>Click to expand</summary>
+</div>
+
+---
+
+## 📌 Table of Contents
 
 - [Overview](#-overview)
 - [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [How It Works](#-how-it-works)
+- [Technology Stack](#-technology-stack)
+- [AI Processing Workflow](#-ai-processing-workflow)
 - [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
+- [Installation](#-installation)
 - [Sample Documents](#-sample-documents)
-- [Roadmap](#-roadmap)
+- [Future Improvements](#-future-improvements)
 - [Author](#-author)
 
-</details>
-
-<br/>
+---
 
 ## 🧠 Overview
 
-**AI Legal Risk Analyzer** is a Retrieval-Augmented Generation (RAG) system for contract review. It doesn't just summarize documents — it retrieves the *exact* clauses relevant to your question, then asks a local LLM to reason strictly over that retrieved text, flagging risk level, potential exposure, and recommendations.
+**AI Legal Risk Analyzer** combines document intelligence with a Retrieval-Augmented Generation (RAG) pipeline to help users understand legal contracts faster. Upload a contract, ask a plain-language question, and get back the most relevant clauses along with an AI-generated risk assessment — grounded strictly in the retrieved text, not hallucinated.
 
-Everything — embeddings, vector search, and inference — runs **locally via Ollama**. No contract text, no questions, no data ever hits an external API.
+> Built for accuracy, transparency, and full local control — every step of the pipeline, from embedding to inference, runs on your own infrastructure.
 
-<br/>
+---
 
 ## ✨ Features
 
+| Category | Capability |
+|---|---|
+| 🔐 **Authentication** | Secure user login & session management |
+| 📤 **Upload** | Supports PDF, DOCX, and TXT contracts |
+| 🔍 **Extraction** | Automatic text extraction from documents |
+| 🧩 **Chunking** | Intelligent, context-aware text chunking |
+| 🧠 **Embeddings** | Dense vector embeddings for semantic understanding |
+| 🗂️ **Vector Store** | ChromaDB-powered vector database |
+| 🔎 **Semantic Search** | Retrieves the most relevant clauses per query |
+| ⚖️ **Risk Analysis** | AI-generated legal risk assessment via local LLM |
+| 📜 **History** | Full analysis history per user/document |
+| 📄 **PDF Export** | One-click export of analysis reports |
+
+---
+
+## 🛠️ Technology Stack
+
 <table>
 <tr>
-<td width="33%" valign="top">
+<td valign="top" width="50%">
 
-<br/>
+**Frontend**
+- Streamlit
 
-## 🛠 Tech Stack
+**Backend**
+- Python
 
-<div align="center">
+**Database**
+- SQLite
+- SQLAlchemy
 
-<br/>
+**Vector Database**
+- ChromaDB
 
-## 🔄 How It Works
+</td>
+<td valign="top" width="50%">
+
+**Embedding Model**
+- Sentence Transformers
+- `all-MiniLM-L6-v2`
+
+**Large Language Model**
+- Ollama
+- `Llama3:8B`
+
+**Document Processing**
+- PyMuPDF
+- python-docx
+
+**AI Pipeline**
+- Retrieval-Augmented Generation (RAG)
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🔄 AI Processing Workflow
 
 ```mermaid
-flowchart LR
-    A[📤 Upload] --> B[✅ Validate]
-    B --> C[📄 Extract Text]
-    C --> D[🧩 Chunk]
-    D --> E[🧠 Embed]
-    E --> F[(🗂️ ChromaDB)]
+flowchart TD
+    A[📤 User Uploads Contract] --> B[✅ File Validation]
+    B --> C[📄 Text Extraction]
+    C --> D[🧩 Text Chunking]
+    D --> E[🧠 Embedding Generation]
+    E --> F[🗂️ Store Embeddings in ChromaDB]
     F --> G[🔎 Semantic Search]
-    G --> H[📑 Retrieve Clauses]
-    H --> I[🦙 Llama3 Reasoning]
-    I --> J[⚖️ Risk Report]
-    J --> K[📥 PDF Export]
-
-    style A fill:#1f2937,stroke:#6E56CF,color:#fff
-    style K fill:#1f2937,stroke:#6E56CF,color:#fff
-    style I fill:#6E56CF,stroke:#1f2937,color:#fff
+    G --> H[📑 Retrieve Relevant Clauses]
+    H --> I[🦙 Llama3 Legal Analysis]
+    I --> J[⚖️ Generate Risk Report]
+    J --> K[📥 Export PDF Report]
 ```
 
-<sub>Diagram renders on GitHub/GitLab. Fallback: Upload → Validate → Extract → Chunk → Embed → ChromaDB → Search → Retrieve → Llama3 → Risk Report → PDF</sub>
+> **Note:** GitHub renders Mermaid diagrams natively. If viewed elsewhere, the linear flow is:
+> `Upload → Validation → Extraction → Chunking → Embeddings → ChromaDB → Semantic Search → Retrieval → Llama3 Analysis → Risk Report → PDF Export`
 
-<br/>
+---
 
 ## 📁 Project Structure
 
 ```
 AI_Legal_Risk_Analyzer/
-├── 🚀 app.py                  → Entry point
-├── 🔐 auth/                   → Login & session handling
-├── 🗄️ database/                → Models, CRUD, DB session
-├── ⚙️ services/                → Embeddings, vector store, search, LLM analyzer
-├── 🧰 utils/                   → PDF export & helpers
-├── 🖥️ views/                   → Streamlit pages (dashboard, search, history)
-├── 📤 uploads/                 → Uploaded contracts
-├── 🧪 tests/                   → Test suite
-├── 🖼️ screenshots/             → App screenshots
-├── 📚 sample_documents/        → Example contracts to try
+├── app.py                  # Application entry point
+├── auth/                   # Authentication & session logic
+├── database/                # Models, CRUD, and DB session handling
+├── services/                # Embedding, vector store, search, LLM analyzer
+├── utils/                   # PDF export & helper utilities
+├── views/                   # Streamlit page views (dashboard, search, history)
+├── uploads/                  # User-uploaded contract files
+├── tests/                    # Test suite
+├── screenshots/               # App screenshots for documentation
+├── sample_documents/           # Example legal contracts
 ├── requirements.txt
 └── README.md
 ```
 
-<br/>
+---
 
-## ⚙️ Getting Started
+## ⚙️ Installation
 
 ```bash
-# clone it
+# 1. Clone the repository
 git clone https://github.com/USERNAME/AI_Legal_Risk_Analyzer.git
 cd AI_Legal_Risk_Analyzer
 
-# set up environment
+# 2. Create a virtual environment
 python -m venv .venv
-source .venv/bin/activate      # Windows: .venv\Scripts\activate
 
-# install deps
+# 3. Activate the environment
+# Windows:
+.venv\Scripts\activate
+# macOS/Linux:
+source .venv/bin/activate
+
+# 4. Install dependencies
 pip install -r requirements.txt
 
-# init db
+# 5. Initialize the database
 python -m database.init_db
 
-# pull the model (one-time)
-ollama pull llama3:8b
-
-# launch
+# 6. Run the app
 streamlit run app.py
 ```
 
-> ⚠️ **Prerequisite:** [Ollama](https://ollama.com/) must be installed and running locally before you start the app — the analyzer talks to it directly.
+> 💡 Make sure [Ollama](https://ollama.com/) is installed and running locally with the `llama3:8b` model pulled (`ollama pull llama3:8b`) before launching the app.
 
-<br/>
+---
 
 ## 📚 Sample Documents
 
-Not ready to upload your own NDA at 2am? Grab one from [`sample_documents/`](./sample_documents) and test the full pipeline in minutes.
+The project includes ready-to-use sample legal contracts inside the [`sample_documents/`](./sample_documents) folder — ideal for quickly testing upload, search, and analysis features without needing your own files.
 
-<br/>
+---
 
-## 🚀 Roadmap
+## 🚀 Future Improvements
 
-- [ ] Multi-document cross-referencing
-- [ ] OCR for scanned contracts
-- [ ] Clause-level risk classification
-- [ ] Visual risk-scoring dashboard
-- [ ] Docker + cloud deployment
-- [ ] JWT-based auth
-- [ ] Multi-agent legal reasoning pipeline
+- [ ] Multi-document retrieval & cross-contract comparison
+- [ ] OCR support for scanned contracts
+- [ ] Automated clause classification
+- [ ] Interactive risk scoring dashboard
+- [ ] Cloud deployment (Docker + CI/CD)
+- [ ] JWT-based authentication
+- [ ] Multi-agent legal analysis pipeline
 
-<br/>
+---
 
 ## 👤 Author
 
+**Talha Abdul Rauf**
+AI Engineer · Python · RAG · LLM · Streamlit · ChromaDB
+
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=flat-square&logo=github)](#)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](#)
+
+---
+
 <div align="center">
+
+*If you found this project useful, consider giving it a ⭐ on GitHub!*
+
+</div>
