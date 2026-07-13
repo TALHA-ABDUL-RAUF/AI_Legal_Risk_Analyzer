@@ -114,10 +114,6 @@ flowchart TD
     I --> J[⚖️ Generate Risk Report]
     J --> K[📥 Export PDF Report]
 ```
-
-> **Note:** GitHub renders Mermaid diagrams natively. If viewed elsewhere, the linear flow is:
-> `Upload → Validation → Extraction → Chunking → Embeddings → ChromaDB → Semantic Search → Retrieval → Llama3 Analysis → Risk Report → PDF Export`
-
 ---
 
 ## 📁 Project Structure
