@@ -4,7 +4,7 @@
 
 ### AI-Powered Legal Contract Analysis with Retrieval-Augmented Generation
 
-An intelligent system that lets users upload legal contracts, run semantic search over clauses, and generate AI-driven legal risk assessments — powered entirely by a **local LLM**, with no data ever leaving your machine.
+An intelligent system that lets users upload legal contracts, run semantic search over clauses, and generate AI-driven legal risk assessments  powered entirely by a **local LLM**, with no data ever leaving your machine.
 
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io/)
@@ -33,9 +33,9 @@ An intelligent system that lets users upload legal contracts, run semantic searc
 
 ## 🧠 Overview
 
-**AI Legal Risk Analyzer** combines document intelligence with a Retrieval-Augmented Generation (RAG) pipeline to help users understand legal contracts faster. Upload a contract, ask a plain-language question, and get back the most relevant clauses along with an AI-generated risk assessment — grounded strictly in the retrieved text, not hallucinated.
+**AI Legal Risk Analyzer** combines document intelligence with a Retrieval-Augmented Generation (RAG) pipeline to help users understand legal contracts faster. Upload a contract, ask a plain-language question, and get back the most relevant clauses along with an AI-generated risk assessment  grounded strictly in the retrieved text, not hallucinated.
 
-> Built for accuracy, transparency, and full local control — every step of the pipeline, from embedding to inference, runs on your own infrastructure.
+> Built for accuracy, transparency, and full local control  every step of the pipeline, from embedding to inference, runs on your own infrastructure.
 
 ---
 
