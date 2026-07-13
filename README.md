@@ -187,7 +187,7 @@ The project includes ready-to-use sample legal contracts inside the [`sample_doc
 ## 👤 Author
 
 **Talha Abdul Rauf**
-AI Engineer ·
+AI Engineer
 
 
 
