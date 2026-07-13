@@ -187,12 +187,9 @@ The project includes ready-to-use sample legal contracts inside the [`sample_doc
 ## 👤 Author
 
 **Talha Abdul Rauf**
-AI Engineer · Python · RAG · LLM · Streamlit · ChromaDB
+AI Engineer ·
 
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=flat-square&logo=github)](#)
-[![LinkedIn](www.linkedin.com/in/talha-abdul-rauf-771031347
 
-)](#)
 
 ---
 
