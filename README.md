@@ -172,7 +172,7 @@ The project includes ready-to-use sample legal contracts inside the [`sample_doc
 
 ---
 
-## 🚀 Future Improvements
+## Future Improvements
 
 - [ ] Multi-document retrieval & cross-contract comparison
 - [ ] OCR support for scanned contracts
